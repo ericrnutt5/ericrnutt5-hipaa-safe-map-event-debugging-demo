@@ -1,8 +1,8 @@
 # HIPAA-Safe Map Event Debugging Demo
 
-This project simulates a technical support investigation involving protected health information (PHI) exposure risks within healthcare analytics and map interaction workflows.
+This repository simulates a real-world support engineering investigation involving protected health information (PHI) exposure risks within healthcare analytics workflows.
 
-The demo is inspired by modern healthcare analytics architectures where patient-facing applications use embedded maps, analytics platforms, and third-party tools that may unintentionally receive sensitive healthcare data.
+The project demonstrates how frontend analytics events generated from embedded healthcare maps can unintentionally expose sensitive data, and how backend sanitization, SQL investigation, and technical incident response workflows can be used to identify and remediate the issue.
 
 ## Project Goals
 
