@@ -1,8 +1,8 @@
-# Incident Report: PHI Exposure Risk in Healthcare Map Analytics
+# Incident Report: PII/PHI Exposure Risk in Healthcare Map Analytics
 
 ## Summary
 
-A healthcare customer reported concerns regarding potential PHI exposure within analytics events generated from embedded provider map interactions.
+A healthcare customer reported concerns regarding potential PII/PHI exposure within analytics events generated from embedded provider map interactions.
 
 ---
 
@@ -17,6 +17,11 @@ The investigation reviewed:
 Frontend event payloads were found to include the field:
 
 - patient_email
+- patient_name
+- patient_phone
+- ip_address
+- latitude / longitude coordinates
+- medical_record_number
 
 This field was transmitted before sanitization occurred.
 
@@ -36,7 +41,13 @@ Implemented backend sanitization logic to remove sensitive identifiers before tr
 
 Validated sanitized event payloads no longer contained:
 - patient_email
-- direct patient identifiers
+- patient_name
+- patient_phone
+- ip_address
+- latitude
+- longitude
+- medical_record_number
+- other direct patient identifiers
 
 ---
 
