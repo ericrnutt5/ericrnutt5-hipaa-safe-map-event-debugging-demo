@@ -50,7 +50,7 @@ A support engineer investigates the issue by:
 
 # Planned Components
 
-## frontend/mapEvent.ts
+## frontend/mapEvent.js
 Simulates frontend analytics events generated from healthcare map interactions.
 
 ## backend/sanitize.go
