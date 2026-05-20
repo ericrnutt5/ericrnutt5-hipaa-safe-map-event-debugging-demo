@@ -23,4 +23,3 @@ Frontend analytics payloads may accidentally contain:
 ## Mitigation Strategy
 
 A sanitization layer removes or filters restricted fields before data reaches analytics destinations.
-```
