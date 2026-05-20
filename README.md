@@ -115,14 +115,19 @@ Example:
 
 Outgoing analytics payload:
 {
-  event: "Viewed Oncology Clinic",
-  clinic_name: "Austin Cancer Center",
-  patient_email: "patient@email.com",
-  zip_code: "78704",
-  timestamp: "..."
+  event: 'Viewed Oncology Clinic',
+  clinic_name: 'Austin Cancer Center',
+  patient_email: 'patient@email.com',
+  patient_phone: '512-555-1234',
+  patient_name: 'Jane Doe',
+  zip_code: '78704',
+  ip_address: '192.168.1.15',
+  latitude: 30.2672,
+  longitude: -97.7431,
+  timestamp: '2026-05-20T12:05:14.489Z'
 }
 
-WARNING: PHI detected in analytics payload.
+WARNING: Potential PII/PHI detected in analytics payload: patient_email, patient_phone, patient_name, ip_address, latitude, longitude
 
 ### Backend Output
 
@@ -134,7 +139,7 @@ When running `sanitize.go`, you should see:
 Example:
 
 Original Event:
-map[clinic_name:Austin Cancer Center event:Viewed Oncology Clinic patient_email:patient@email.com zip_code:78704]
+map[clinic_name:Austin Cancer Center event:Viewed Oncology Clinic insurance_id:INS-77821 ip_address:192.168.1.15 latitude:30.2672 longitude:-97.7431 medical_record_number:MRN-48291 patient_email:patient@email.com patient_name:Jane Doe patient_phone:512-555-1234 zip_code:78704]
 
 Sanitized Event:
 map[clinic_name:Austin Cancer Center event:Viewed Oncology Clinic zip_code:78704]
@@ -145,11 +150,11 @@ If everything is set up correctly:
 
 ### Frontend
 - Event payload prints successfully
-- PHI warning appears in console
+- PII/PHI warning appears in console
 
 ### Backend
-- Original event includes patient_email
-- Sanitized output removes patient_email
+- Original event includes PII/PHI
+- Sanitized output removes PII/PHI
 
 ## Key Investigation Concepts
 
@@ -171,7 +176,7 @@ Support engineers validate whether PHI has reached downstream systems.
 
 The included SQL queries simulate:
 
-- Detection of direct PHI fields (email, phone, name)
+- Detection of direct PII/PHI fields (email, phone, name)
 - Pattern-based detection of sensitive data in event payloads
 - Location-based sensitivity analysis (geo + ZIP data)
 - Risk scoring across multiple signals
