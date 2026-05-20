@@ -81,7 +81,7 @@ This project focuses on demonstrating:
 
 ---
 
-## Running the Demo
+# Running the Demo
 
 ### Prerequisites
 
