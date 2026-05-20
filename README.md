@@ -78,3 +78,18 @@ This project focuses on demonstrating:
 - Support engineering mindset
 - Cross-functional communication
 - Healthcare analytics risk mitigation
+
+## Running the Demo
+
+### TypeScript Event Simulation
+
+```bash
+cd frontend
+ts-node mapEvent.ts
+```
+
+### Go Sanitization Demo
+
+```bash
+cd backend
+go run sanitize.go
